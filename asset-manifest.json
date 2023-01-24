@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/veterinary-hospital/static/css/main.2e20c4b6.css",
+    "main.js": "/veterinary-hospital/static/js/main.0fe96f07.js",
+    "index.html": "/veterinary-hospital/index.html",
+    "main.2e20c4b6.css.map": "/veterinary-hospital/static/css/main.2e20c4b6.css.map",
+    "main.0fe96f07.js.map": "/veterinary-hospital/static/js/main.0fe96f07.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.2e20c4b6.css",
+    "static/js/main.0fe96f07.js"
+  ]
+}
