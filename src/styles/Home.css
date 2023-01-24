@@ -1,0 +1,29 @@
+.homeContainer {
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+}
+
+.cListTitles {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.Item {
+    width: 400px;
+
+}
+
+.reserveButton {
+    background-color: green;
+    color: white;
+    border: 0;
+}
+
+.select {
+    width: 100%;
+}

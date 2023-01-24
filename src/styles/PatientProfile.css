@@ -1,0 +1,14 @@
+.profileCard {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: center;
+    margin: 20px auto;
+}
+
+.tableAndPagination {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

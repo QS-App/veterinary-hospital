@@ -1,0 +1,91 @@
+/* .circularProgress {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -50px 0 0 -50px;
+}
+
+* {
+    box-sizing: border-box;
+  }
+  .flex-container {
+  
+    content: "";
+    clear: both;
+    display: table;
+    width: 100%;
+  }
+  
+  .flex-container .box {
+    float: left;
+    width: 33.33%;
+    padding: 5px;
+    min-height: 200px;
+  }
+
+  .flex-container .box img {
+    width: 100px;
+    height: 100px;
+  }
+
+
+  @media only screen and (max-width: 600px) {
+    .flex-container {
+  
+        content: "";
+        clear: both;
+        display: table;
+      }
+      .flex-container .box {
+        float: left;
+        width: 100%;
+        padding: 5px;
+        min-height: 200px;
+      }
+  } */
+
+
+.homeContainer {
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+}
+  .cList {
+    width: 100%;
+    max-width: 1024px;
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+    display: inline-block;
+}
+
+.cListItem {
+    flex: 1;
+    border-radius: 10px;
+    overflow: hidden;
+    cursor: pointer;
+    display: inline-block;
+    display: inline-block;
+    margin: 20px;
+}
+.cListImg {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+}
+
+.clinicName {
+    font-size: 18px;
+    text-transform: capitalize;
+    text-align: center;
+}
+
+
+.circularProgress {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: -50px 0 0 -50px;
+}
