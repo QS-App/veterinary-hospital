@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/veterinary-hospital/static/css/main.2e20c4b6.css",
-    "main.js": "/veterinary-hospital/static/js/main.0fe96f07.js",
+    "main.js": "/veterinary-hospital/static/js/main.2770946c.js",
     "index.html": "/veterinary-hospital/index.html",
     "main.2e20c4b6.css.map": "/veterinary-hospital/static/css/main.2e20c4b6.css.map",
-    "main.0fe96f07.js.map": "/veterinary-hospital/static/js/main.0fe96f07.js.map"
+    "main.2770946c.js.map": "/veterinary-hospital/static/js/main.2770946c.js.map"
   },
   "entrypoints": [
     "static/css/main.2e20c4b6.css",
-    "static/js/main.0fe96f07.js"
+    "static/js/main.2770946c.js"
   ]
 }
