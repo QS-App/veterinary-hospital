@@ -22,18 +22,20 @@ const Clinic = ({roles}) => {
     const [validDate, setValidDate] = useState(false)
     
     
-
+    
     useEffect(() => {
       setValidDate(date !== null)
     }, [date])
-
-
-
-  const bookAppointment = async () => {
-    const userId = user.data.userId
-    const clinicId = data.id
+    
+    
+    
+    const bookAppointment = async () => {
+      const userId = user.data.userId
+      const clinicId = data.id
+      console.log(date)
     
     try {
+      console.log(typeof(date))
       const response = await axios.post(RESERVATION_POST_URL, 
         {
           UserId: userId,
