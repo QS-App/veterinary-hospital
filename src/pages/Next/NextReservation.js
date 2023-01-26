@@ -9,10 +9,11 @@ import axios from '../../api/axios';
 const NextReservation = () => {
 
     const location = useLocation()
-    const clinicId = location.pathname.split('/')[2]
+    const clinicId = location.pathname.split('/')[3]
     const {data, loading, error} = useFetch(`Clinics/Get-today-tomorrow-Reservations/${clinicId}`)
+    const laterReservationsResponse = useFetch(`Clinics/GetLaterReservations/${clinicId}`)
     const [todayReservationsOpen, setTodayReservationsOpen] = useState(false)
-    const [tomorrowReservationsOpen, setTomorrowReservationsOpen] = useState(false)
+    const [laterReservationsOpen, setLaterReservationsOpen] = useState(false)
     const CHANGE_RESERVATION_STATUS_URL = '/Reservations/change-reservation-status'
     const NEXT_RESERVATION_URL = '/Reservations/next-reservation'
     const changeStatusReservation = async (reservationId, status) => {
@@ -49,15 +50,15 @@ const NextReservation = () => {
     <div style={{display: 'flex', justifyContent: 'space-around', margin: '50px'}}>
         <Button style={{color: 'white'}} onClick={(e) => {
             setTodayReservationsOpen(!todayReservationsOpen)
-            setTomorrowReservationsOpen(false)
+            setLaterReservationsOpen(false)
         }} size="small">
           Today Reservations
         </Button>
         <Button style={{color: 'white'}} onClick={(e) => {
-            setTomorrowReservationsOpen(!tomorrowReservationsOpen)
+            setLaterReservationsOpen(!laterReservationsOpen)
             setTodayReservationsOpen(false)
         }} size="small">
-          Tomorrow Reservations
+          Later Reservations
         </Button>
     </div>
         
@@ -125,13 +126,13 @@ const NextReservation = () => {
     </Grid>
     )}
 
-{tomorrowReservationsOpen && (
+{laterReservationsOpen && (
         <Grid style={{display: 'flex', flexDirection: 'column', alignItems: 'center'}} container spacing={1} justifyContent="center">
       <Grid item>
-      {data.tomorrow.length === 0 ? <Typography>No Patients Tomorrow</Typography> : 
+      {laterReservationsResponse.data.length === 0 ? <Typography>No Patients Tomorrow</Typography> : 
         <Paper>
         <Grid>
-        <Typography textAlign='center' p='5'>Tomorrow Reservations</Typography>
+        <Typography textAlign='center' p='5'>Later Reservations</Typography>
 
           
           <TableContainer component={Paper}>
@@ -149,7 +150,7 @@ const NextReservation = () => {
                 </TableRow>
               </TableHead>
               <TableBody>
-                {data.tomorrow.map((reservation, idx) => (
+                {laterReservationsResponse.data.map((reservation, idx) => (
                   <TableRow key={idx}>
                     <TableCell component="th" scope="row">
                       {reservation.clinicName}

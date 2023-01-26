@@ -1,5 +1,6 @@
 import { Button, CircularProgress, Typography } from '@mui/material'
 import Select from 'react-select'
+
 import axios from '../../api/axios'
 import React, { useContext, useEffect, useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
@@ -14,7 +15,7 @@ const Clinic = ({roles}) => {
     const RESERVATION_POST_URL = "/Reservations"
     const {user} = useContext(AuthContext)
     const location = useLocation()
-    const id = location.pathname.split('/')[2]
+    const id = location.pathname.split('/')[3]
     const {data, loading, error} = useFetch(`${CLINIC_URL}/${id}`)
     let res = []
     data.avaliableDates?.forEach((date, idx) => res.push({'value': date, 'label': date}))
@@ -35,7 +36,7 @@ const Clinic = ({roles}) => {
       console.log(date)
     
     try {
-      console.log(typeof(date))
+      
       const response = await axios.post(RESERVATION_POST_URL, 
         {
           UserId: userId,
@@ -57,7 +58,7 @@ const Clinic = ({roles}) => {
     <div className='homeContainer'>
       {user.data.roleId === 4 && 
       <div className='updateClinic'>
-        <Link to="/update-clinic" state={data}>
+        <Link to="/veterinary-hospital/update-clinic" state={data}>
           <Button style={{color: 'white', backgroundColor: 'green'}}>Update</Button>
         </Link>
       </div>

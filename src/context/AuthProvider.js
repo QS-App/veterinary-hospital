@@ -33,7 +33,7 @@ export const AuthContextProvider = ({children}) => {
             token: jwt_decode(response.data.accessToken),
             data: rest
         })
-        navigate("/clinics")
+        navigate("/veterinary-hospital/clinics")
     }
 
 
@@ -42,7 +42,7 @@ export const AuthContextProvider = ({children}) => {
      
         localStorage.removeItem("tokens");
         setUser(null);
-        navigate("/");
+        navigate("/veterinary-hospital");
       };
 
     return <AuthContext.Provider value={{user, login, logout}}>

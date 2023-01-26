@@ -16,7 +16,7 @@ const Clinics = ({roles}) => {
       {!loading ? 
       <div className='homeContainer'>
         {user.data.roleId === roles.Admin ? (
-        <Link to="/create-clinic">
+        <Link to="/veterinary-hospital/create-clinic">
           <Button variant="contained">
             Create Clinic
           </Button>

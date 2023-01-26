@@ -11,7 +11,7 @@ const Navbar = () => {
     <nav className='navbar'>
       <ul className="menu">
           <li className="logo">
-            <Link to="/">
+            <Link to="/veterinary-hospital">
               <Button style={{color: 'white'}}>qs app</Button>
             </Link>
           </li>
@@ -20,23 +20,23 @@ const Navbar = () => {
             {user.data.roleId === 1 ? (
 
               <li className="item">
-              <Link to="/PatientProfile">
+              <Link to="/veterinary-hospital/PatientProfile">
                 <Button style={{color: 'white'}}>Welcome {user.data.userName}</Button>
               </Link>
               </li>
             ): null}
             <li className='item button'>
-              <Link to="/clinics">
+              <Link to="/veterinary-hospital/clinics">
                 <Button style={{color: 'white'}}>Clinics</Button>
               </Link>
             </li>
             <li className='item button'>
-              <Link to="/contact">
+              <Link to="/veterinary-hospital/contact">
                 <Button style={{color: 'white'}}>Contact Us</Button>
               </Link>  
             </li>
             <li className="item button">
-              <Link to="/">
+              <Link to="/veterinary-hospital">
                 <Button color='warning' onClick={() => logout()}>Sign out</Button>
               </Link>
             </li>
@@ -44,17 +44,17 @@ const Navbar = () => {
            :
           <div>
             <li className='item button'>
-              <Link to="/contact">
+              <Link to="/veterinary-hospital/contact">
                 <Button style={{color: 'white'}}>Contact Us</Button>
               </Link> 
             </li>
             <li className="item button">
-              <Link to="/login">
+              <Link to="/veterinary-hospital/login">
                 <Button style={{color: 'white'}}>Log In</Button>
               </Link> 
             </li>
             <li className="item button secondary">
-              <Link to="/register">
+              <Link to="/veterinary-hospital/register">
                 <Button style={{color: 'white'}}>Sign Up</Button>
               </Link> 
             </li>

@@ -103,7 +103,7 @@ const Register = () => {
                 }
             )
 
-            navigate('/')
+            navigate('/veterinary-hospital')
             
         } catch (error) {
             if (!error?.response) {

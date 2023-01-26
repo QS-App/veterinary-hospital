@@ -33,29 +33,29 @@ function App() {
       <Navbar />
       <ReactNotifications />
       <Routes>
-          <Route path='/' element={<Layout />}>
-            <Route path='/' element={<Home />} />
-            <Route path='/register' element={<Register />} />
-            <Route path='/login' element={<Login />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="/unauthorized" element={<Unauthorized />} />
+          <Route path='/veterinary-hospital' element={<Layout />}>
+            <Route path='/veterinary-hospital' element={<Home />} />
+            <Route path='/veterinary-hospital/register' element={<Register />} />
+            <Route path='/veterinary-hospital/login' element={<Login />} />
+            <Route path="/veterinary-hospital/contact" element={<Contact />} />
+            <Route path="/veterinary-hospital/unauthorized" element={<Unauthorized />} />
 
 
             {/* Protected Routes require login */}
             <Route element={<RequireAuth allowedRoles={[ROLES.Patient]}/>}>
-              <Route path='/PatientProfile' element={<PatientProfile />} />
-              <Route path="/reservation-details" element={<ReservationDetails />} />
+              <Route path='/veterinary-hospital/PatientProfile' element={<PatientProfile />} />
+              <Route path="/veterinary-hospital/reservation-details" element={<ReservationDetails />} />
             </Route>
             <Route element={<RequireAuth allowedRoles={[ROLES.Admin]}/>}>
-              <Route path='/create-clinic' element={<CreateClinic />} />
-              <Route path='/update-clinic' element={<UpdateClinic />} />
+              <Route path='/veterinary-hospital/create-clinic' element={<CreateClinic />} />
+              <Route path='/veterinary-hospital/update-clinic' element={<UpdateClinic />} />
             </Route>
             <Route element={<RequireAuth allowedRoles={[ROLES.Nursing]}/>}>
-              <Route path='/clinics/:id/reservations' element={<NextReservation />} />
+              <Route path='/veterinary-hospital/clinics/:id/reservations' element={<NextReservation />} />
             </Route>
             <Route element={<RequireAuth allowedRoles={[ROLES.Patient, ROLES.Nursing, ROLES.Admin]}/>}>
-              <Route path='/clinics' element={<Clinics roles={ROLES} />} />
-              <Route path='/clinics/:id' element={<Clinic roles={ROLES} />} />
+              <Route path='/veterinary-hospital/clinics' element={<Clinics roles={ROLES} />} />
+              <Route path='/veterinary-hospital/clinics/:id' element={<Clinic roles={ROLES} />} />
             </Route>
           </Route>
           
