@@ -33,7 +33,7 @@ function App() {
       <Navbar />
       <ReactNotifications />
       <Routes>
-          <Route path='/veterinary-hospital' element={<Layout />}>
+          <Route path='/' element={<Layout />}>
             <Route path='/veterinary-hospital' element={<Home />} />
             <Route path='/veterinary-hospital/register' element={<Register />} />
             <Route path='/veterinary-hospital/login' element={<Login />} />

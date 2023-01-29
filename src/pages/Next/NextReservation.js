@@ -1,11 +1,12 @@
 import React, { useState } from 'react'
-import { Button, Card, CardActionArea, CardActions, CardContent, CardMedia, Grid, Paper, Stack, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography } from '@mui/material'
-import { useLocation, Link } from 'react-router-dom'
+import { Button, Grid, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography } from '@mui/material'
+import { useLocation } from 'react-router-dom'
 import useFetch from '../../api/useFetch'
 import CheckIcon from '@mui/icons-material/Check';
 import CloseIcon from '@mui/icons-material/Close';
 import ShowNotification from '../../utils/ShowNotification';
 import axios from '../../api/axios';
+
 const NextReservation = () => {
 
     const location = useLocation()
@@ -28,6 +29,8 @@ const NextReservation = () => {
             ShowNotification("Error", "There's somthing wrong", "danger")
         }
     }
+    console.log(data)
+    console.log(laterReservationsResponse.data)
 
 
     const nextReservation = async () => {
@@ -86,6 +89,7 @@ const NextReservation = () => {
                     <TableCell align="center">
                         DateTime
                     </TableCell>
+                    <TableCell align="center">Time of reservation</TableCell>
                     <TableCell align="center">Status</TableCell>
                     <TableCell align="center">cost</TableCell>
                     <TableCell align="center">patientNumber</TableCell>
@@ -102,6 +106,9 @@ const NextReservation = () => {
                       </TableCell>
                       <TableCell align="center">
                         {reservation.dateTime}
+                      </TableCell>
+                      <TableCell align="center">
+                        {reservation.reserveTime}:00
                       </TableCell>
                       <TableCell align="center">
                         {reservation.status}
@@ -139,6 +146,7 @@ const NextReservation = () => {
             <Table sx={{ minWidth: 650 }} aria-label="simple table">
               <TableHead>
                 <TableRow>
+                <TableCell align="center">Patient Name</TableCell>
                   <TableCell align="center">Clinic Name</TableCell>
                   <TableCell align="center">
                       DateTime
@@ -153,6 +161,9 @@ const NextReservation = () => {
                 {laterReservationsResponse.data.map((reservation, idx) => (
                   <TableRow key={idx}>
                     <TableCell component="th" scope="row">
+                      {reservation.patientName}
+                    </TableCell>
+                    <TableCell align="center">
                       {reservation.clinicName}
                     </TableCell>
                     <TableCell align="center">
@@ -165,8 +176,14 @@ const NextReservation = () => {
                       {reservation.cost}
                     </TableCell>
                     <TableCell align="center">
-                      {reservation.patientNumber}
+                        {reservation.patientNumber}
                     </TableCell>
+                    {reservation.statusId === 2 && (
+                      <TableCell align="center"><CheckIcon style={{color: 'green'}} /></TableCell>
+                    )}
+                    {reservation.statusId === 6 && <TableCell align="center"><CloseIcon style={{color: 'red'}} /></TableCell>}
+                    {(reservation.statusId !== 2 && reservation.statusId !== 6) && (
+
                     <TableCell align="center">
                       <Button onClick={() => changeStatusReservation(reservation.id,1)}>
                           <CheckIcon />
@@ -175,6 +192,7 @@ const NextReservation = () => {
                           <CloseIcon />
                       </Button>
                     </TableCell>
+                    )}
                   </TableRow>
                 ))}
               </TableBody>

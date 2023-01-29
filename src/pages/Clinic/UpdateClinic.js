@@ -1,10 +1,15 @@
+/* eslint-disable */
 import React, { useState } from 'react'
-import { Typography, Grid, Paper, Box, TextField, Input, Checkbox, FormGroup, FormControlLabel, Button } from '@material-ui/core'
+import { Typography, Grid, TextField, Paper, Box, Input, Checkbox, FormGroup, FormControlLabel, Button } from '@material-ui/core'
+
 import Slider from '@mui/material/Slider';
 import { useLocation } from 'react-router-dom';
 import { FormControl, Radio, RadioGroup } from '@mui/material';
 import axios from '../../api/axios';
 import ShowNotification from '../../utils/ShowNotification';
+import { TimePicker } from '@mui/x-date-pickers/TimePicker';
+import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
+import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 
 
 const UpdateClinic = () => {
@@ -19,8 +24,9 @@ const UpdateClinic = () => {
   const [imageName, setImageName] = useState(null)
   const [workDays, setWorkDays] = useState(null)
   const [clinicType, setClinicType] = useState(data.clinicType)
+  const [time, setTime] = useState()
 
-
+  console.log(time)
   const WeekDays = [
     "Saturday",
     "Sunday",
@@ -32,6 +38,9 @@ const UpdateClinic = () => {
   ]
   const handleChangeLimit = (e, newValue) => {
     setLimit(newValue)
+  }
+  const handleTime = (e) => {
+    setTime(e)
   }
   const handleFromToChange = (e, newValue) => {
     setFromTo(newValue)
@@ -142,6 +151,16 @@ const UpdateClinic = () => {
                         ))}
 
                     </FormGroup> 
+                </Box>
+                <Box p={1}>
+                <LocalizationProvider dateAdapter={AdapterDayjs}>
+                  <TimePicker
+                    label="Time"
+                    value={time}
+                    onChange={handleTime}
+                    renderInput={(params) => <TextField {...params} />}
+                  />
+                </LocalizationProvider>
                 </Box>
                 <Box p={1} display="flex" alignItems="center" justifyContent="center">
                     <Button type='submit' variant="contained">Update Clinic</Button>
